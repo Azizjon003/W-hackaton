@@ -11,7 +11,6 @@ import config from "config";
 import log from "./utils/logger";
 import cors from "cors";
 import path from "path";
-import { userOnline } from "./services/telegramService.service";
 const PORT = config.get("port");
 const app = express();
 const server = createServer(app);
@@ -50,7 +49,6 @@ try {
     log.info(`SERVER IS LISTENING ON PORT ${PORT} Time ${new Date()}`);
     log.info(`=================================`);
   });
-  userOnline();
 } catch (error) {
   console.log(error);
 } finally {

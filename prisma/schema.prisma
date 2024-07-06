@@ -13,26 +13,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model user {
-  id String @id @default(cuid())
-  name String?
-  username String?
-  telegram_id String @unique
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
+  id        String   @id @default(cuid())
+  email     String   @unique
+  toolLink  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+}
+model product {
+  id         String   @id @default(cuid())
+  name       String?
+  description String?
+  link      String?
+  price      Float?
+  image      String?
+  categories product_category[]
+  user_id String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model category {
+  id         String   @id @default(cuid())
+  name       String
+  icon       String
+  products   product_category[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 
-model channel {
-  id String @id @default(cuid())
-  name String?
-  telegram_id String @unique
-  members Int
-  image String?
-  username String
-  about String?
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
+model product_category {
+  id         String   @id @default(cuid())
+  product_id String
+  category_id String
+  product    product  @relation(fields: [product_id], references: [id])
+  category   category @relation(fields: [category_id], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
+
+
+
+
+
+
+

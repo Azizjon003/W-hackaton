@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link href="/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./custom.css" />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="max-w-2xl mx-auto py-32 px-4 mb-2">
+      <div class="mb-6">
+        <h1
+          class="inline-block bg-gradient-to-r from-gray-600 to-black text-transparent bg-clip-text font-semibold"
+        >
+          Add details
+        </h1>
+      </div>
+
+      <form method="post" class="space-y-8" action="/create-details">
+        <div>
+          <label class="form-label" for="name"> Name </label>
+
+          <input
+            type="text"
+            required="required"
+            class="form-control"
+            id="name"
+            name="name"
+          />
+        </div>
+
+        <div>
+          <label class="form-label" for="url"> URL </label>
+
+          <input disabled="disabled" type="text" required="required"
+          class="form-control" id="url" name="url" value="<%= link.link %>"" />
+        </div>
+
+        <div>
+          <label class="form-label" for="description"> Description </label>
+          <div
+            data-controller="editor"
+            data-action="image-uploader:uploaded->editor#image"
+            class=""
+          >
+            <div
+              class="h-10 bg-gray-100 flex items-center space-x-3 px-3 rounded-t-lg"
+            >
+              <button data-action="click->editor#bold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M7 5h6a3.5 3.5 0 0 1 0 7h-6z"></path>
+                  <path d="M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7"></path>
+                </svg>
+              </button>
+              <button data-action="click->editor#italic">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="11" y1="5" x2="17" y2="5"></line>
+                  <line x1="7" y1="19" x2="13" y2="19"></line>
+                  <line x1="14" y1="5" x2="10" y2="19"></line>
+                </svg>
+              </button>
+              <button data-action="click->editor#strike">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <path
+                    d="M16 6.5a4 2 0 0 0 -4 -1.5h-1a3.5 3.5 0 0 0 0 7h2a3.5 3.5 0 0 1 0 7h-1.5a4 2 0 0 1 -4 -1.5"
+                  ></path>
+                </svg>
+              </button>
+
+              <button data-action="click->editor#subscript">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M5 7l8 10m-8 0l8 -10"></path>
+                  <path d="M21 20h-4l3.5 -4a1.73 1.73 0 0 0 -3.5 -2"></path>
+                </svg>
+              </button>
+              <button data-action="click->editor#code">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <polyline points="7 8 3 12 7 16"></polyline>
+                  <polyline points="17 8 21 12 17 16"></polyline>
+                  <line x1="14" y1="4" x2="10" y2="20"></line>
+                </svg>
+              </button>
+              <button data-action="click->editor#link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                  ></path>
+                  <path
+                    d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                  ></path>
+                </svg>
+              </button>
+              <label
+                data-controller="image-uploader"
+                data-image-uploader-action-value="https://1000.tools/upload-image"
+                class="cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="15" y1="8" x2="15.01" y2="8"></line>
+                  <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+                  <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5"></path>
+                  <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2"></path>
+                </svg>
+                <input
+                  data-image-uploader-target="input"
+                  data-action="input->image-uploader#upload"
+                  type="file"
+                  name="file"
+                  class="hidden"
+                />
+              </label>
+              <button data-action="click->editor#blockquote">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                  ></path>
+                  <path
+                    d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"
+                  ></path>
+                </svg>
+              </button>
+              <button data-action="click->editor#bulletList">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="9" y1="6" x2="20" y2="6"></line>
+                  <line x1="9" y1="12" x2="20" y2="12"></line>
+                  <line x1="9" y1="18" x2="20" y2="18"></line>
+                  <line x1="5" y1="6" x2="5" y2="6.01"></line>
+                  <line x1="5" y1="12" x2="5" y2="12.01"></line>
+                  <line x1="5" y1="18" x2="5" y2="18.01"></line>
+                </svg>
+              </button>
+              <button data-action="click->editor#orderedList">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-gray-400 w-5 h-5"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M11 6h9"></path>
+                  <path d="M11 12h9"></path>
+                  <path d="M12 18h8"></path>
+                  <path
+                    d="M4 16a2 2 0 1 1 4 0c0 .591 -.5 1 -1 1.5l-3 2.5h4"
+                  ></path>
+                  <path d="M6 10v-6l-2 2"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="bg-gray-100 rounded-b-lg">
+              <article
+                data-editor-target="editor"
+                class="px-3 py-2 min-h-[250px]"
+              >
+                <div
+                  contenteditable="true"
+                  translate="no"
+                  class="tiptap ProseMirror prose prose-sm prose-img:rounded-xl max-w-none focus:outline-none"
+                  tabindex="0"
+                >
+                  <p
+                    data-placeholder="Description"
+                    class="is-empty is-editor-empty"
+                  >
+                    <br class="ProseMirror-trailingBreak" />
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <textarea
+              data-editor-target="contentJson"
+              name="description_json"
+              hidden=""
+            ></textarea>
+            <textarea
+              data-editor-target="contentHtml"
+              name="description_html"
+              hidden=""
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="fixed left-4 top-4">
+      <a class="btn btn-gray" href="https://1000.tools/my/tools">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="w-5 h-5 mr-1"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+
+        Back
+      </a>
+    </div>
+
+    <div class="fixed left-1/2 top-6 -translate-x-1/2 z-50" id="toasts"></div>
+    <turbo-frame id="modal"></turbo-frame>
+  </body>
+</html>

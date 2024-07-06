@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link href="/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./custom.css" />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="h-screen scrollbar-thin scrollbar-thumb-rounded-full">
+      <div
+        class="h-screen w-full max-w-xl mx-auto flex items-center py-20 px-4"
+      >
+        <div class="w-full lg:max-w-xs mx-auto">
+          <a class="hidden" href="https://1000.tools">
+            <img
+              class="h-[24px] mx-auto mb-8"
+              src="https://1000.tools/build/assets/logo-cf14bd45.svg"
+              loading="lazy"
+            />
+          </a>
+
+          <h1 class="text-center font-semibold mb-4">Submit</h1>
+
+          <form
+            method="post"
+            class="space-y-3"
+            action="/create-tool"
+            data-turbo="false"
+          >
+            <div>
+              <input
+                id="url"
+                class="form-control"
+                type="text"
+                name="url"
+                value=""
+                placeholder="Tool URL..."
+                required=""
+                autofocus=""
+              />
+            </div>
+
+            <div>
+              <input
+                id="email"
+                class="form-control"
+                type="text"
+                name="email"
+                value=""
+                placeholder="Your email address..."
+                required=""
+              />
+            </div>
+
+            <div class="p-4 rounded-xl border">
+              <h3 class="mb-2">Checklist</h3>
+
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <div
+                    class="w-4 h-4 rounded-full bg-black text-white flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <p class="text-sm text-gray-500">Your tool is functional</p>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <div
+                    class="w-4 h-4 rounded-full bg-black text-white flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <p class="text-sm text-gray-500">
+                    It delivers what it promises
+                  </p>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <div
+                    class="w-4 h-4 rounded-full bg-black text-white flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <p class="text-sm text-gray-500">Is not an infoproduct</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-2">
+              <button class="btn btn-primary w-full">Next</button>
+
+              <a
+                class="hidden btn btn-gray w-full"
+                href="https://1000.tools/login"
+              >
+                Log in
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <div class="fixed left-4 top-4">
+          <a class="btn btn-gray" href="https://1000.tools">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5 mr-1"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+
+            Back
+          </a>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
